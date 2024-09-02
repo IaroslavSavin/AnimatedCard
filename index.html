@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Animated Card</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+      /* Настройка плавных переходов */
+      .transition-all {
+        transition: all 0.5s ease;
+      }
+
+      /* Начальное состояние карточки */
+      .card-content {
+        width: 100%;
+        min-width: 315px;
+        max-width: 440px;
+        height: 158px;
+        padding: 16px 12px;
+        gap: 12px;
+      }
+
+      /* Состояние при наведении */
+      .group:hover .card-content {
+        height: 286px;
+      }
+
+      /* Начальное состояние контейнера с заголовками */
+      .header-container {
+        width: 100%;
+        min-width: 292px;
+        height: 48px;
+        gap: 0;
+        justify-content: space-between;
+      }
+
+      /* Состояние контейнера с заголовками при наведении */
+      .group:hover .header-container {
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      /* Расширенное описание */
+      .expanded-description {
+        width: 100%;
+        min-width: 292px;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.5s ease;
+        padding: 0;
+        gap: 0;
+      }
+
+      /* Состояние расширенного описания при наведении */
+      .group:hover .expanded-description {
+        height: 116px;
+        opacity: 1;
+        padding: 8px;
+        gap: 8px;
+      }
+
+      /* Кнопка с текстом */
+      .button-text {
+        width: 100%;
+        min-width: 292px;
+        height: 66px;
+        gap: 4px;
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div
+      class="w-full min-w-[315px] max-w-[440px] h-[380px] bg-white shadow-lg rounded-lg overflow-hidden relative group"
+    >
+      <!-- Верхняя кнопка -->
+      <div class="relative w-full h-[222px] bg-gray-300">
+        <button
+          class="absolute top-3 right-3 w-[59px] h-[28px] bg-white text-gray-800 border border-gray-300 rounded-md text-[12px] font-medium leading-[16px] tracking-[0.005em]"
+        >
+          Button
+        </button>
+      </div>
+
+      <!-- Текст и нижняя кнопка -->
+      <div
+        class="absolute bottom-0 left-0 w-full bg-white shadow-lg card-content transition-all"
+      >
+        <!-- Контейнер с заголовками -->
+        <div class="flex header-container transition-all">
+          <div class="w-[73px] h-[48px] gap-4">
+            <div
+              class="w-[73px] h-[20px] text-left text-sm leading-[20px] tracking-wider font-normal mb-1"
+            >
+              Subheader
+            </div>
+            <div
+              class="w-[71px] h-[24px] text-left text-xl leading-[24.2px] tracking-wider font-medium mb-1"
+            >
+              Header
+            </div>
+          </div>
+          <div
+            class="mt-[10px] text-right text-lg leading-[21.78px] tracking-[0.005em] font-medium"
+          >
+            Text
+          </div>
+        </div>
+
+        <!-- Расширенное описание -->
+        <div
+          class="expanded-description flex flex-col border-t border-gray-300 transition-all"
+        >
+          <div class="flex justify-between w-full h-[20px]">
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-left"
+              >Text</span
+            >
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-right cursor-pointer"
+              >Link</span
+            >
+          </div>
+          <div class="flex justify-between w-full h-[20px]">
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-left"
+              >Text</span
+            >
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-right cursor-pointer"
+              >Link</span
+            >
+          </div>
+          <div class="flex justify-between w-full h-[20px]">
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-left"
+              >Text</span
+            >
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-right cursor-pointer"
+              >Link</span
+            >
+          </div>
+          <div class="flex justify-between w-full h-[20px]">
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-left"
+              >Text</span
+            >
+            <span
+              class="text-[14px] leading-[20px] tracking-[0.005em] text-right cursor-pointer"
+              >Link</span
+            >
+          </div>
+        </div>
+
+        <!-- Нижняя кнопка -->
+        <div class="mt-4 button-text">
+          <button
+            class="w-full h-[46px] bg-gray-500 text-white rounded hover:bg-gray-700"
+          >
+            Button
+          </button>
+          <div
+            class="text-center mt-2 text-[12px] leading-[16px] tracking-[0.005em] text-gray-500"
+          >
+            Sub text
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
